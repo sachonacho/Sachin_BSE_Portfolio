@@ -1,5 +1,5 @@
 # Tendon-Driven Robotic Hand
-This project is a robotic hand driven by servos attached to rope tendons. The hand is controlled by a glove with flex sensors 
+This project is a robotic hand driven by servos attached to rope tendons. The hand is controlled by a glove with flex sensors which sends numeric output to the robotic hand. The robotic hand then receives that numeric input and converts it into motion by flexing the tendons and therefore the fingers.
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
@@ -79,9 +79,9 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| 2x Arduino Uno Rev3 | The Arduino Uno controls the several servos connected to the hand, controlling how much each tendon is pulled, and therefore how much the finger is flexed. | 2x $33.98 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://store.arduino.cc/products/arduino-uno-rev3)"> Link </a> |
+| 6x MG996R 55g Metal Gear Torque Digital Servo Motor | These servos wind up the rope tendons attached to the hand, thus flexing the fingers depending on the Arduino input | 1 order = $26.98 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/6-Pack-MG996R-Torque-Digital-Helicopter/dp/B0BMM1G74B/ref=sr_1_3_sspa?crid=3IKWW61WANINS&dib=eyJ2IjoiMSJ9.HAru7Zjv6UHS76wqocnm-ErEpMlnonBzf_eUh5W7RNvUrHls2zjpI0F_DoNHxF-fK-QlRjXKUjSMa7o-QTXBKMCWu1RmSX-sOaT1prqcz62W0yIse56Qm7Y9tGUQF_WWmry4C-ZXXhArFoEaVXY0BQNjELvotDWADWkDucvVhD_xvLzgeswbspKw5tzQa-IoUUnV63GiDsuzXNZyEqCkLYFrGq382CsHngjfbSLvdxdBi4WQkrTGy1mS-UWPbiX_Vs6ySAsIrPLCR2CZh77KeU57ojgUMXAdQkumfaIFeQ8.raG0zCHBuWMWZJhFQcTFXkhHhp5tzeqm2Wl5JAm4AXM&dib_tag=se&keywords=MG996R%2BHigh%2BTorque%2BServo%2BMotor&qid=1779668225&sprefix=mg996r%2Bhigh%2Btorque%2Bservo%2Bmotor%2Caps%2C163&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1)"> Link </a> |
+| Flex sensors | The flex sensors are used in the glove to sense how much the users hand flexes in order to assign that amount a number. This number is then sent to the Arduino, which tells the servos how much to rotate to mimic the movement in the glove. | 5x $7.95 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
