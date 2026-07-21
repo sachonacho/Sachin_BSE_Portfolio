@@ -103,7 +103,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 # Other Resources/Examples
 - [Eth](https://srl.ethz.ch/platforms/srh/biomimetic-tendon-driven-hand.html)
-)
+
 - [ResearchGate](https://www.researchgate.net/figure/A-linkage-tendon-hybrid-driven-anthropomorphic-robotic-hand-MCR-Hand-II_fig1_334852568
 )
 - [Github](https://github.com/TetherIA/aero-hand-open/blob/main/hardware/Assembly/Tools.csv)
