@@ -39,17 +39,11 @@ For your second milestone, explain what you've worked on since your previous mil
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
 
-# First Milestone
+# First Milestone: 3D CAD Model of the Robotic Hand
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=2uztZlgEYV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
+For this first milestone, I fully designed the 3D CAD model for the robotic hand. This involved a lot of different calculations and simulation to ensure that the joints moved smoothly together. This included designing 6 custom housings for the servos to sit it, creating individual fingers for tendons to run through and contract, and designing a rotating pivot that serves as an opposable joint for the thumb. One issue I faced and will continue to face is the accuracy of the 3D printer. A lot of my project relies on precision and accuracy, and since the 3D printer is only accurate down to 0.3mm, I had to account for that in the design process. This problem was especially prevalent in the first finger design, as the screw holes were too small and the pieces didn't slide across each other the way they should have. The next step in my project is to design the glove that will control the hand using numeric outputs from flex sensors.
 
 # Starter Project: Mini Arcade Game
 
@@ -103,7 +97,6 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 # Other Resources/Examples
 - [Eth](https://srl.ethz.ch/platforms/srh/biomimetic-tendon-driven-hand.html)
-
 - [ResearchGate](https://www.researchgate.net/figure/A-linkage-tendon-hybrid-driven-anthropomorphic-robotic-hand-MCR-Hand-II_fig1_334852568
 )
 - [Github](https://github.com/TetherIA/aero-hand-open/blob/main/hardware/Assembly/Tools.csv)
