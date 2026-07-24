@@ -1,6 +1,5 @@
 # Tendon-Driven Robotic Hand
-This project is a robotic hand driven by servos attached to string tendons. The hand is controlled by a glove with flex sensors which sends numeric output to the robotic hand. The robotic hand then receives that numeric input and the computer converts it into motion by turning the servos, which flexes the tendons, eventually curling the fingers. The fingers return to their original position using springs. 
-(Why I chose it?)
+This project is a robotic hand driven by servos attached to string tendons. The hand is controlled by a glove with flex sensors which sends numeric output to the robotic hand. The robotic hand then receives that numeric input and the computer converts it into motion by turning the servos, which flexes the tendons, eventually curling the fingers. The fingers return to their original position using springs. This is a project I have been thinking about doing for a long time and Bluestamp gave me the perfect opportunity to finally make it. The entire project was built from scratch and did not use any designs or code published online. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -20,17 +19,13 @@ For your final milestone, explain the outcome of your project. Key details to in
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
 
-# Second Milestone
+# Second Milestone: Command Glove Wiring & Code
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+For this milestone, I designed and assembled the glove with flex sensors to gather input and convert it into numeric output. This required me to superglue the tops of the flex sensors to the tips of the glove fingers and sew tracks to keep the flex sensor oriented. I also had to solder the wires onto the flex sensors which eventually ended at the Arduino microcontroller. In order to wire from the flex sensor to the Arduino, I had to create a voltage divider on the breadboard using wires and resistors. Finally, I coded using C++ to gather input from the flex sensors and store them as numeric outputs. One of the biggest struggles I had during this milestone was soldering the joints cleanly, in addition to figuring out how to calibrate the sensors each time before running the code to account for external circumstances.
 
 # First Milestone: 3D CAD Model of the Robotic Hand
 
@@ -51,29 +46,71 @@ For my starter project, I assembled the mini arcade game showcased in the video 
 # Code
 
 ```c++
-//Includes the servo library
 #include <Servo.h>
 
-//Create a value for the sensor
-int sensorValue1;
-int sensorValue2;
-int sensorValue3;
-int sensorValue4;
-int sensorValue5;
-int sensorValue6;
+float smoothie = 0.2; // Smoothing factor (0.1 = smooth/slow, 0.9 = fast/noisy)
 
-//Define the servos
-Servo servo1;
-Servo servo2;
-Servo servo3;
-Servo servo4;
-Servo servo5;
-Servo servo6;
+//Creates values for the 
+int minVal1 = 1023; int maxVal1 = 0;
+int minVal2 = 1023; int maxVal2 = 0;
+int minVal3 = 1023; int maxVal3 = 0;
+int minVal4 = 1023; int maxVal4 = 0;
+int minVal5 = 1023; int maxVal5 = 0;
+int minVal6 = 1023; int maxVal6 = 0;
+
+//Creates each servo
+Servo servo1, servo2, servo3, servo4, servo5, servo6;
 
 void setup() {
   Serial.begin(9600);
 
-  //Attaches the servos
+  // Wait until the Serial Monitor is actually opened
+  while (!Serial) { ; }
+
+  Serial.println("Starting 5-second calibration... Move sensors now!");
+
+  unsigned long startTime = millis();
+
+  // Calibrate for 5 seconds relative to when setup starts
+  while (millis() - startTime < 5000) {
+    int sensorRead1 = analogRead(A0);
+    if (sensorRead1 > maxVal1) maxVal1 = sensorRead1;
+    if (sensorRead1 < minVal1) minVal1 = sensorRead1;
+
+    int sensorRead2 = analogRead(A1);
+    if (sensorRead2 > maxVal2) maxVal2 = sensorRead2;
+    if (sensorRead2 < minVal2) minVal2 = sensorRead2;
+
+    int sensorRead3 = analogRead(A2);
+    if (sensorRead3 > maxVal3) maxVal3 = sensorRead3;
+    if (sensorRead3 < minVal3) minVal3 = sensorRead3;
+
+    int sensorRead4 = analogRead(A3);
+    if (sensorRead4 > maxVal4) maxVal4 = sensorRead4;
+    if (sensorRead4 < minVal4) minVal4 = sensorRead4;
+
+    int sensorRead5 = analogRead(A4);
+    if (sensorRead5 > maxVal5) maxVal5 = sensorRead5;
+    if (sensorRead5 < minVal5) minVal5 = sensorRead5;
+
+    int sensorRead6 = analogRead(A5);
+    if (sensorRead6 > maxVal6) maxVal6 = sensorRead6;
+    if (sensorRead6 < minVal6) minVal6 = sensorRead6;
+  }
+
+  // Prints the calibration settings
+  Serial.println("\n==================================");
+  Serial.println("      CALIBRATION COMPLETE        ");
+  Serial.println("==================================");
+  Serial.print("Sensor 1 (A0) -> Min: "); Serial.print(minVal1); Serial.print(" | Max: "); Serial.println(maxVal1);
+  Serial.print("Sensor 2 (A1) -> Min: "); Serial.print(minVal2); Serial.print(" | Max: "); Serial.println(maxVal2);
+  Serial.print("Sensor 3 (A2) -> Min: "); Serial.print(minVal3); Serial.print(" | Max: "); Serial.println(maxVal3);
+  Serial.print("Sensor 4 (A3) -> Min: "); Serial.print(minVal4); Serial.print(" | Max: "); Serial.println(maxVal4);
+  Serial.print("Sensor 5 (A4) -> Min: "); Serial.print(minVal5); Serial.print(" | Max: "); Serial.println(maxVal5);
+  Serial.print("Sensor 6 (A5) -> Min: "); Serial.print(minVal6); Serial.print(" | Max: "); Serial.println(maxVal6);
+  Serial.println("==================================\n");
+
+  // Attach servos
   servo1.attach(11);
   servo2.attach(10);
   servo3.attach(9);
@@ -81,7 +118,7 @@ void setup() {
   servo5.attach(5);
   servo6.attach(3);
 
-  //Sets all servos to basic position
+  // Default positions
   servo1.write(0);
   servo2.write(0);
   servo3.write(0);
@@ -90,39 +127,47 @@ void setup() {
   servo6.write(0);
 }
 
+// More variables to read the values of the flex sensors
+int sensorValue1 = 0;
+int sensorValue2 = 0;
+int sensorValue3 = 0;
+int sensorValue4 = 0;
+int sensorValue5 = 0;
+int sensorValue6 = 0;
+
 void loop() {
-  //Takes the input value from analog pin Ax
-  sensorValue1 = analogRead(A0);
-  sensorValue2 = analogRead(A1);
-  sensorValue3 = analogRead(A2);
-  sensorValue4 = analogRead(A3);
-  sensorValue5 = analogRead(A4);
-  sensorValue6 = analogRead(A5);
+  //Takes the readings from the sensors
+  int initValue1 = analogRead(A0);
+  int initValue2 = analogRead(A1);
+  int initValue3 = analogRead(A2);
+  int initValue4 = analogRead(A3);
+  int initValue5 = analogRead(A4);
+  int initValue6 = analogRead(A5);
 
-  //Maps the range of inputs and converts it to degrees that the servo turns. Creates a variable equivalent to this map
-  sensorValue1 = map(sensorValue1, 480, 570, 180, 0);
-  sensorValue2 = map(sensorValue2, 460, 640, 180, 0);
-  sensorValue3 = map(sensorValue3, 480, 660, 180, 0);
-  sensorValue4 = map(sensorValue4, 470, 640, 180, 0);
-  sensorValue5 = map(sensorValue5, 480, 520, 180, 0);
-  sensorValue6 = map(sensorValue6, 850, 565, 180, 0);
+  //Smoothes the values to remove jittery movement
+  sensorValue1 = (smoothie * initValue1) + ((1.0 - smoothie) * sensorValue1);
+  sensorValue2 = (smoothie * initValue2) + ((1.0 - smoothie) * sensorValue2);
+  sensorValue3 = (smoothie * initValue3) + ((1.0 - smoothie) * sensorValue3);
+  sensorValue4 = (smoothie * initValue4) + ((1.0 - smoothie) * sensorValue4);
+  sensorValue5 = (smoothie * initValue5) + ((1.0 - smoothie) * sensorValue5);
+  sensorValue6 = (smoothie * initValue6) + ((1.0 - smoothie) * sensorValue6);
 
-  //Constrains the sensor values
-  sensorValue1 = constrain(sensorValue1, 0, 180);
-  sensorValue2 = constrain(sensorValue2, 0, 180);
-  sensorValue3 = constrain(sensorValue3, 0, 180);
-  sensorValue4 = constrain(sensorValue4, 0, 180);
-  sensorValue5 = constrain(sensorValue5, 0, 180);
-  sensorValue6 = constrain(sensorValue6, 0, 180);
+  //Maps the values taken from the sensors to 0 - 180, the angles on the servos.
+  //It also constrains the values to solely between 0 and 180
+  int servoAngle1 = constrain(map(sensorValue1, minVal1, maxVal1, 180, 0), 0, 180);
+  int servoAngle2 = constrain(map(sensorValue2, minVal2, maxVal2, 180, 0), 0, 180);
+  int servoAngle3 = constrain(map(sensorValue3, minVal3, maxVal3, 180, 0), 0, 180);
+  int servoAngle4 = constrain(map(sensorValue4, minVal4, maxVal4, 180, 0), 0, 180);
+  int servoAngle5 = constrain(map(sensorValue5, minVal5, maxVal5, 180, 0), 0, 180);
+  int servoAngle6 = constrain(map(sensorValue6, minVal6, maxVal6, 180, 0), 0, 180);
 
-  //Sends all servos to the assigned value
-  servo1.write(sensorValue1);
-  servo2.write(sensorValue2);
-  servo3.write(sensorValue3);
-  servo4.write(sensorValue4);
-  servo5.write(sensorValue5);
-  servo6.write(sensorValue6);
-  delay(10);
+  // Physically moves the servos 
+  servo1.write(servoAngle1);
+  servo2.write(servoAngle2);
+  servo3.write(servoAngle3);
+  servo4.write(servoAngle4);
+  servo5.write(servoAngle5);
+  servo6.write(servoAngle6);
 }
 ```
 
