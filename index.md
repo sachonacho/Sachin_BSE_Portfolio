@@ -52,22 +52,85 @@ For this first milestone, I fully designed the 3D CAD model for the robotic hand
 For my starter project, I assembled the mini arcade game showcased in the video above. The game can either be powered by the battery pack on the back, or it can receive power from a cable. The majority of this project was soldering different parts, such as the buttons, LED displays, buzzer, and wires onto the provided microcontroller. In the beginning, I had some trouble with cleanly soldering the joints, however, once I got more practice the joints became cleaner and more efficient.
 
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
-![Servo Schematic](Schematic.jpeg)
+![Servo/Flex Sensor Schematic 1](Schematic1.png)
+![Servo/Flex Sensor Schematic 2](Schematic2.png)
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
+//Includes the servo library
+#include <Servo.h>
+
+//Create a value for the sensor
+int sensorValue1;
+int sensorValue2;
+int sensorValue3;
+int sensorValue4;
+int sensorValue5;
+int sensorValue6;
+
+//Define the servos
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Hello World!");
+
+  //Attaches the servos
+  servo1.attach(11);
+  servo2.attach(10);
+  servo3.attach(9);
+  servo4.attach(6);
+  servo5.attach(5);
+  servo6.attach(3);
+
+  //Sets all servos to basic position
+  servo1.write(0);
+  servo2.write(0);
+  servo3.write(0);
+  servo4.write(0);
+  servo5.write(0);
+  servo6.write(0);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //Takes the input value from analog pin Ax
+  sensorValue1 = analogRead(A0);
+  sensorValue2 = analogRead(A1);
+  sensorValue3 = analogRead(A2);
+  sensorValue4 = analogRead(A3);
+  sensorValue5 = analogRead(A4);
+  sensorValue6 = analogRead(A5);
 
+  //Maps the range of inputs and converts it to degrees that the servo turns. Creates a variable equivalent to this map
+  sensorValue1 = map(sensorValue1, 480, 570, 180, 0);
+  sensorValue2 = map(sensorValue2, 460, 640, 180, 0);
+  sensorValue3 = map(sensorValue3, 480, 660, 180, 0);
+  sensorValue4 = map(sensorValue4, 470, 640, 180, 0);
+  sensorValue5 = map(sensorValue5, 480, 520, 180, 0);
+  sensorValue6 = map(sensorValue6, 850, 565, 180, 0);
+
+  //Constrains the sensor values
+  sensorValue1 = constrain(sensorValue1, 0, 180);
+  sensorValue2 = constrain(sensorValue2, 0, 180);
+  sensorValue3 = constrain(sensorValue3, 0, 180);
+  sensorValue4 = constrain(sensorValue4, 0, 180);
+  sensorValue5 = constrain(sensorValue5, 0, 180);
+  sensorValue6 = constrain(sensorValue6, 0, 180);
+
+  //Sends all servos to the assigned value
+  servo1.write(sensorValue1);
+  servo2.write(sensorValue2);
+  servo3.write(sensorValue3);
+  servo4.write(sensorValue4);
+  servo5.write(sensorValue5);
+  servo6.write(sensorValue6);
+  delay(10);
 }
 ```
 
