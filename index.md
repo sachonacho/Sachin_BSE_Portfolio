@@ -53,17 +53,15 @@ int minVal4 = 1023; int maxVal4 = 0;
 int minVal5 = 1023; int maxVal5 = 0;
 int minVal6 = 1023; int maxVal6 = 0;
 
-const int Pinky = 155;
-const int Ring = 140;
+const int Pinky = 165;
+const int Ring = 150;
 const int Middle = 0;
 const int Pointer = 180;
 const int Thumb = 180;
-const int Rotate = 100;
+const int Rotate = 110;
 
 //Creates each servo
 Servo servo1, servo2, servo3, servo4, servo5, servo6;
-
-//const int GREEN_LED = 2; // Status LED Pin
 
 void setup() {
   // Default positions
@@ -178,7 +176,6 @@ void loop() {
   servo4.write(servoAngle4);
   servo5.write(servoAngle5);
   servo6.write(servoAngle6);
-}
 }
 ```
 
