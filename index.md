@@ -9,7 +9,7 @@ This project is a robotic hand driven by servos attached to string tendons. The 
   
 # Final Milestone: Putting it all Together!
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=z5vPHtAxXKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z5vPHtAxXKU?si=56akKj66Ddj-XJXN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 For this milestone, I fully constructed the entire hand and connected up the flex sensor glove and the servos to the same Arduino. Then, I wrote all of the code that sent the numeric output from the flex sensors on the voltage dividers to the servos, which involved mapping the input to numbers 0 through 180 to translate them to servo angles. One of the biggest struggles I had here was dealing with the huge impulse of the jittery servos. I had two solutions to this: creating a calibration program, and creating an Exponential Moving Average to smooth out the data. Although this was tough given I have never worked with C++, I was able to figure it out, and now the hand works remarkably well. Overall, I've learned so much, from 3D modeling, to C++, to using sensors and wiring. In the future, I hope to continue making project such as this, hopefully with even more accuracy and function!
 
@@ -17,13 +17,13 @@ For this milestone, I fully constructed the entire hand and connected up the fle
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=rIBAYaX1_RE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rIBAYaX1_RE?si=uYQlmDL7TaZhLgLz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 For this milestone, I designed and assembled the glove with flex sensors to gather input and convert it into numeric output. This required me to superglue the tops of the flex sensors to the tips of the glove fingers and sew tracks to keep the flex sensor oriented. I also had to solder the wires onto the flex sensors which eventually ended at the Arduino microcontroller. In order to wire from the flex sensor to the Arduino, I had to create a voltage divider on the breadboard using wires and resistors. Finally, I coded using C++ to gather input from the flex sensors and store them as numeric outputs. One of the biggest struggles I had during this milestone was soldering the joints cleanly, in addition to figuring out how to calibrate the sensors each time before running the code to account for external circumstances.
 
 # First Milestone: 3D CAD Model of the Robotic Hand
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=2uztZlgEYV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2uztZlgEYV8?si=TLMm4Aup_7aqxrLW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 For this first milestone, I fully designed the 3D CAD model for the robotic hand. This involved a lot of different calculations and simulation to ensure that the joints moved smoothly together. This included designing 6 custom housings for the servos to sit it, creating individual fingers for tendons to run through and contract, and designing a rotating pivot that serves as an opposable joint for the thumb. One issue I faced and will continue to face is the accuracy of the 3D printer. A lot of my project relies on precision and accuracy, and since the 3D printer is only accurate down to 0.3mm, I had to account for that in the design process. This problem was especially prevalent in the first finger design, as the screw holes were too small and the pieces didn't slide across each other the way they should have. The next step in my project is to design the glove that will control the hand using numeric outputs from flex sensors.
 
