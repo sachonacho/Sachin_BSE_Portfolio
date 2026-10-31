@@ -34,10 +34,9 @@ For my starter project, I assembled the mini arcade game showcased in the video 
 ![Servo/Flex Sensor Schematic 2](Schematic1.png)
 
 # 3D Model in Onshape
-![Finger Model 1](finger.png)
-![Finger Model 2](finger2.png)
+![Finger Model 1](Finger.png)
+![Finger Model 2](Finger2.png)
 ![Full Design Model](FullDesign.png)
-![Design Section View](Design Section.png)
 
 # Code
 
