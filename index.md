@@ -181,6 +181,7 @@ void loop() {
 ```
 
 # Bill of Materials
+
 | **Part** | **Note** | **Price** | **Link** |
 |-----|-----|-----|-----|
 | 1x Arduino Uno Rev3 | The Arduino Uno controls the several servos connected to the hand, controlling how much each tendon is pulled, and therefore how much the finger is flexed. | $33.98/unit | <a href="https://store.arduino.cc/products/arduino-uno-rev3"> Link </a> |
@@ -196,7 +197,6 @@ void loop() {
 | DC Power Jack Female Connector | This is used to connect the power supply to the bus strips where the servos get power. | $3.97 | <a href="https://www.amazon.com/California-JOS-Male-Female-2-1x5-5mm/dp/B0CR8TZ41W/ref=sr_1_4?crid=3SGNI8IU5L86S&dib=eyJ2IjoiMSJ9.oERvPOoJhQ8N5OvmDasWcABOe1gAN5g4IpuSjzjt72B3DT69QbI5MXFHooflMHNk3jN4DV7iJagqCaYq1sHFJm_1ub18DbfBYBCxZS9_OqjmGf7TdwgYB6NIF4xJZBrkXgNtU0K2N6N_iSLltpHQIpN4yzwRt1vQ9iZ9DT4YW1c_mh0dWOnArlwIfz7DAg_kW29eulPdCO7fSLtbooKc5dO3F79YlFSDL2Up0Hf2wrchwWMwhTKOMwCIwUmk9pQwCLc_PDa-BfuHDjSr0U1lrCKt3aZYUACPl_LeC8MFAPk.zyHa-I8icz3XwPgrtSrffqewiYyXWNRYpZwSYbaBK8Y&dib_tag=se&keywords=dc%2Bconnector%2Bto%2B%2B_&qid=1784661621&s=electronics&sprefix=dc%2Bconnector%2Bto%2B%2B%2Celectronics%2C473&sr=1-4&th=1"> Link </a> |
 | M1.5 Metal Dowel Pins | This is used as a pivot point for the fingers and also an attachment point for the springs on the fingers. | $5.79 | <a href="https://www.amazon.com/HARFINGTON-Stainless-Cylindrical-Furniture-Installation/dp/B0F6D17R3R/ref=sr_1_4?crid=2YPD9KPCHKFM2&dib=eyJ2IjoiMSJ9.VsynPj-809zw_D1zUrg3O4jFe_zkEfXzucLyDuFcbwAsmx2OEevPCrfQHP6y3rrZ_r3KNHaw0TcBK_e28cprgMhZXL-N2Fmy_wS9el_vrepjM4znC5lkc7jiiFt4hwypCFZysMGvCVwlMKWLCBpAgf3Fu4OIPzVG2uNCVWTuoHLP3cJWPs8-wKyws1r2R29WxqLlHJdjiFPtX-6QYMpMzqoVTZfVMZ5m3llSfddo4_A.fDYzblbJAnwkgwJrAkKojm62FRedxiixXf_tBECYGyI&dib_tag=se&keywords=1.5mm%2Bmetal%2Bpins&qid=1783024320&sprefix=1.5mm%2Bmetal%2B%2Caps%2C483&sr=8-4&th=1"> Link </a> |
 | Super Glue | Used for attaching certain parts such as the spools together. | $8.48 | <a href="https://www.amazon.com/Fast%E2%80%91Setting-Impact%E2%80%91Tough-All%E2%80%91Purpose-Adhesive-Anti-Clog/dp/B08QQZ71CV/ref=sr_1_3?crid=2SVGPLA48MEIT&dib=eyJ2IjoiMSJ9.prPOkHbbdtLPxn3mgR2TV8N48BgvxwLcQpvExS2lp1TKOWeZGKznQSDtCdLpvBcln6_bDYthVzbLNgXrdNOWCMASw6bsN8O9UnXJI_h7aRN8BMsZ2r2Ilh641i-7ucZaX-B8Ttfn5qYu3QHcd1RirEsHcyY9Xa2vlcgQlcQCsGwTo2swQUSdAsA9dVxzgZrcePElQKJhlQOetdNP9LoqNJF6-QBWSEIZwdzUCmV1zLQ.cENgg6tSPUVz2coFMRS6j1rkCWZWEO0ncFMHO9I8TD4&dib_tag=se&keywords=gorilla%2Bsuper%2Bglue&qid=1784662142&sprefix=gorilla%2Bsuper%2Bgl%2Caps%2C223&sr=8-3&th=1"> Link </a> |
-<!--- | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> | -->
 
 # Other Resources/Examples
 - [Eth](https://srl.ethz.ch/platforms/srh/biomimetic-tendon-driven-hand.html)
